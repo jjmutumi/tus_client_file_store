@@ -1,5 +1,8 @@
 # Tus client file store
 
+[![Build Status](https://travis-ci.org/jjmutumi/tus_client_file_store.svg?branch=master)](https://travis-ci.org/jjmutumi/tus_client_file_store)
+[![codecov](https://codecov.io/gh/jjmutumi/tus_client_file_store/branch/master/graph/badge.svg)](https://codecov.io/gh/jjmutumi/tus_client_file_store)
+
 ---
 
 This is an extension library for [tus_client](https://github.com/jjmutumi/tus_client) for Flutter.
