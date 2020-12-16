@@ -1,6 +1,6 @@
 name: tus_client_file_store
 description: A file based storage for tus_client that you can use to save the state resumable uploads even after restarting device.
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/jjmutumi/tus_client_file_store
 
 environment:
