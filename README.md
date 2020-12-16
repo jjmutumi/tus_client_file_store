@@ -1,5 +1,6 @@
 # Tus client file store
 
+[![Pub Version](https://img.shields.io/pub/v/tus_client_file_store)](https://pub.dev/packages/tus_client_file_store)
 [![Build Status](https://travis-ci.org/jjmutumi/tus_client_file_store.svg?branch=master)](https://travis-ci.org/jjmutumi/tus_client_file_store)
 [![codecov](https://codecov.io/gh/jjmutumi/tus_client_file_store/branch/master/graph/badge.svg)](https://codecov.io/gh/jjmutumi/tus_client_file_store)
 
