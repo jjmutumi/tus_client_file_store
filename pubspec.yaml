@@ -10,6 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  path: ^1.7.0
   tus_client: ^0.0.4
 
 dev_dependencies:

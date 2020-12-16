@@ -15,12 +15,15 @@ class TusFileStore implements TusStore {
 
   TusFileStore(this.directory);
 
+  /// Store a new [fingerprint] and its upload [url].
   @override
   Future<void> set(String fingerprint, Uri url) async {
     final file = await _getFile(fingerprint);
     await file.writeAsString(url.toString());
   }
 
+  /// Retrieve an upload's Uri for a [fingerprint].
+  /// If no matching entry is found this method will return `null`.
   @override
   Future<Uri> get(String fingerprint) async {
     final file = await _getFile(fingerprint);
@@ -30,6 +33,7 @@ class TusFileStore implements TusStore {
     return null;
   }
 
+  /// Remove an entry from the store using an upload's [fingerprint].
   @override
   Future<void> remove(String fingerprint) async {
     final file = await _getFile(fingerprint);
