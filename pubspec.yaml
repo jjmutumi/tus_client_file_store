@@ -1,6 +1,6 @@
 name: tus_client_file_store
 description: A file based storage for tus_client that you can use to save the state resumable uploads even after restarting device.
-version: 0.0.2
+version: 0.0.3
 homepage: https://github.com/jjmutumi/tus_client_file_store
 
 environment:
@@ -11,7 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
   path: ^1.7.0
-  tus_client: ^0.0.4
+  tus_client: ^0.1.1
 
 dev_dependencies:
   flutter_test:

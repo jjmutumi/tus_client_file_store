@@ -25,12 +25,12 @@ dependencies:
     sdk: flutter
   tus_client_file_store:
     path: ../
-  tus_client: ^0.0.4
+  tus_client: ^0.1.1
   cross_file: ^0.1.0
-  file_picker: ^1.13.3
+  file_picker: ^2.1.4
   path: ^1.7.0
   path_provider: ^1.6.14
-  url_launcher: ^5.5.2
+  url_launcher: ^5.7.10
 
 
   # The following adds the Cupertino Icons font to your application.
