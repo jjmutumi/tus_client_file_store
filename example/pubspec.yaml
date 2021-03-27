@@ -25,7 +25,7 @@ dependencies:
     sdk: flutter
   tus_client_file_store:
     path: ../
-  tus_client: ^0.1.1
+  tus_client: ^1.0.0
   cross_file: ^0.1.0
   file_picker: ^2.1.4
   path: ^1.7.0

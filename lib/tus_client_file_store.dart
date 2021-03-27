@@ -25,7 +25,7 @@ class TusFileStore implements TusStore {
   /// Retrieve an upload's Uri for a [fingerprint].
   /// If no matching entry is found this method will return `null`.
   @override
-  Future<Uri> get(String fingerprint) async {
+  Future<Uri?> get(String fingerprint) async {
     final file = await _getFile(fingerprint);
     if (await file.exists()) {
       return Uri.parse(await file.readAsString());

@@ -1,3 +1,7 @@
+## [1.0.0] - Migrating to null safety
+
+* Updating tus_client to v1.0.0
+
 ## [0.0.3] - Adding documentation
 
 * Updating tus_client to v0.1.1
