@@ -85,7 +85,7 @@ class _UploadPageState extends State<UploadPage> {
               child: Row(
                 children: <Widget>[
                   Expanded(
-                    child: RaisedButton(
+                    child: ElevatedButton(
                       onPressed: _file == null
                           ? null
                           : () async {
@@ -116,7 +116,7 @@ class _UploadPageState extends State<UploadPage> {
                   ),
                   SizedBox(width: 8),
                   Expanded(
-                    child: RaisedButton(
+                    child: ElevatedButton(
                       onPressed: _progress == 0
                           ? null
                           : () async {
@@ -158,7 +158,7 @@ class _UploadPageState extends State<UploadPage> {
               onTap: _progress != 100
                   ? null
                   : () async {
-                      await launch(_fileUrl.toString());
+                      await launchUrl(_fileUrl);
                     },
               child: Container(
                 color: _progress == 100 ? Colors.green : Colors.grey,
