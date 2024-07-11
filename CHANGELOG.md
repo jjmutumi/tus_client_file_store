@@ -1,3 +1,8 @@
+## [1.1.0] - Migrating to Dart 3
+
+* Migrating to Dart 3
+* Updating dependencies
+
 ## [1.0.0] - Migrating to null safety
 
 * Updating tus_client to v1.0.0

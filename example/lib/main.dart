@@ -1,7 +1,7 @@
 import 'package:cross_file/cross_file.dart' show XFile;
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:path_provider/path_provider.dart' show getTemporaryDirectory;
+import 'package:path_provider/path_provider.dart';
 import 'package:tus_client/tus_client.dart';
 import 'package:tus_client_file_store/tus_client_file_store.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -30,9 +30,9 @@ class UploadPage extends StatefulWidget {
 
 class _UploadPageState extends State<UploadPage> {
   double _progress = 0;
-  XFile _file;
-  TusClient _client;
-  Uri _fileUrl;
+  late XFile? _file;
+  late TusClient _client;
+  late Uri? _fileUrl;
 
   @override
   Widget build(BuildContext context) {
@@ -58,8 +58,9 @@ class _UploadPageState extends State<UploadPage> {
                 color: Colors.teal,
                 child: InkWell(
                   onTap: () async {
-                    _file =
-                        await _getXFile(await FilePicker.platform.pickFiles());
+                    _file = await _getXFile(
+                      await FilePicker.platform.pickFiles(),
+                    );
                     setState(() {
                       _progress = 0;
                       _fileUrl = null;
@@ -85,7 +86,7 @@ class _UploadPageState extends State<UploadPage> {
               child: Row(
                 children: <Widget>[
                   Expanded(
-                    child: RaisedButton(
+                    child: ElevatedButton(
                       onPressed: _file == null
                           ? null
                           : () async {
@@ -93,7 +94,7 @@ class _UploadPageState extends State<UploadPage> {
                               print("Create a client");
                               _client = TusClient(
                                 Uri.parse("https://master.tus.io/files/"),
-                                _file,
+                                _file!,
                                 store: TusFileStore(
                                   await getTemporaryDirectory(),
                                 ),
@@ -116,7 +117,7 @@ class _UploadPageState extends State<UploadPage> {
                   ),
                   SizedBox(width: 8),
                   Expanded(
-                    child: RaisedButton(
+                    child: ElevatedButton(
                       onPressed: _progress == 0
                           ? null
                           : () async {
@@ -158,7 +159,7 @@ class _UploadPageState extends State<UploadPage> {
               onTap: _progress != 100
                   ? null
                   : () async {
-                      await launch(_fileUrl.toString());
+                      await launchUrl(_fileUrl!);
                     },
               child: Container(
                 color: _progress == 100 ? Colors.green : Colors.grey,
@@ -175,16 +176,16 @@ class _UploadPageState extends State<UploadPage> {
   }
 
   /// Copy file to temporary directory before uploading
-  Future<XFile> _getXFile(FilePickerResult result) async {
+  Future<XFile?> _getXFile(FilePickerResult? result) async {
     if (result != null) {
       final chosenFile = result.files.first;
       if (chosenFile.path != null) {
         // Android, iOS, Desktop
-        return XFile(chosenFile.path);
+        return XFile(chosenFile.path!);
       } else {
         // Web
         return XFile.fromData(
-          chosenFile.bytes,
+          chosenFile.bytes!,
           name: chosenFile.name,
         );
       }
